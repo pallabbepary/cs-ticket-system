@@ -13,7 +13,7 @@ const Navbar = () => {
                         </div>
                         <div class="flex justify-between">
                             <div>
-                                <a class="btn font-bold btn-ghost text-2xl">CS — Ticket System</a>
+                                <a class="btn bg-no-repeat font-bold btn-ghost text-2xl">CS — Ticket System</a>
                             </div>
                             <div class="flex gap-8 items-center">
                                 <button class = "font-semibold"><a href="">Home</a></button>

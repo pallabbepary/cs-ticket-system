@@ -1,5 +1,6 @@
 import './App.css'
 import { Suspense, useState } from 'react'
+import { ToastContainer } from 'react-toastify';
 import Navbar from './components/Navbar/Navbar'
 import Banner from './components/Banner/Banner'
 import CustomerTickets from './components/CustomerTickets/CustomerTickets'
@@ -17,7 +18,11 @@ function App() {
 
   const [selectedCards, setSelectedCards] = useState([])
   
-  
+  const removeTaskStatus = (c) =>{
+    const filterData = selectedCards.filter(card => card.id !==c.id)
+    // console.log(filterData)
+    setSelectedCards(filterData)
+  }
   
   const customerPromise = fetchCustomerTickets()
 
@@ -28,8 +33,10 @@ function App() {
       <Banner selectedCards = {selectedCards}></Banner>
 
       <Suspense>
-        <CustomerTickets selectedCards={selectedCards} setSelectedCards={setSelectedCards} setInProgress = {setInProgress} customerPromise = {customerPromise}></CustomerTickets>
+        <CustomerTickets removeTaskStatus={removeTaskStatus} selectedCards={selectedCards} setSelectedCards={setSelectedCards} customerPromise = {customerPromise}></CustomerTickets>
       </Suspense>
+
+      <ToastContainer></ToastContainer>
     </>
   )
 }

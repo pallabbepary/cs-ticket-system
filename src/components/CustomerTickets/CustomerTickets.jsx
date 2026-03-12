@@ -3,7 +3,7 @@ import open from '../../assets/Ellipse-22.png'
 import Vector from '../../assets/Vector.png'
 import SelectedCard from '../../components/SelectedCard/SelectedCard';
 
-const CustomerTickets = ({customerPromise, setInProgress, selectedCards, setSelectedCards}) => {
+const CustomerTickets = ({customerPromise, setInProgress, selectedCards, setSelectedCards, removeTaskStatus}) => {
 
     const customerData = use(customerPromise)
     // console.log(customerData)
@@ -17,7 +17,7 @@ const CustomerTickets = ({customerPromise, setInProgress, selectedCards, setSele
                     <div className='grid grid-cols-2 gap-5'>
                     {
                         customerData.map(customer => <div onClick={() => {
-                            setInProgress(1)
+                            
                             setSelectedCards([...selectedCards, customer])
                         }} className="card bg-base-100 shadow-sm">
                             <div className="card-body space-y-1">
@@ -55,7 +55,7 @@ const CustomerTickets = ({customerPromise, setInProgress, selectedCards, setSele
                     </div>
                     <div className='space-y-4'>
                         {
-                            selectedCards.map(selectedCard => <SelectedCard selectedCard={selectedCard}></SelectedCard>)
+                            selectedCards.map(selectedCard => <SelectedCard removeTaskStatus={removeTaskStatus} selectedCard={selectedCard}></SelectedCard>)
                         }
                     </div>
                     <div>
