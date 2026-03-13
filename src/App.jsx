@@ -4,6 +4,7 @@ import { ToastContainer } from 'react-toastify';
 import Navbar from './components/Navbar/Navbar'
 import Banner from './components/Banner/Banner'
 import CustomerTickets from './components/CustomerTickets/CustomerTickets'
+import Footer from './components/Footer/Footer';
 
 
 
@@ -35,6 +36,8 @@ function App() {
       <Suspense>
         <CustomerTickets removeTaskStatus={removeTaskStatus} selectedCards={selectedCards} setSelectedCards={setSelectedCards} customerPromise = {customerPromise}></CustomerTickets>
       </Suspense>
+
+      <Footer></Footer>
 
       <ToastContainer></ToastContainer>
     </>

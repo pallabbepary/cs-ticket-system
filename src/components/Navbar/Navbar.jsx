@@ -15,7 +15,7 @@ const Navbar = () => {
                             <div>
                                 <a class="btn bg-no-repeat font-bold btn-ghost text-2xl">CS — Ticket System</a>
                             </div>
-                            <div class="flex gap-8 items-center">
+                            <div class="md:flex gap-8 items-center hidden md:block ">
                                 <button class = "font-semibold"><a href="">Home</a></button>
                                 <button class = "font-semibold"><a href="">FAQ</a></button>
                                 <button class = "font-semibold"><a href="">Changelog</a></button>
