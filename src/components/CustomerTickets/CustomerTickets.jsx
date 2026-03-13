@@ -52,7 +52,7 @@ const CustomerTickets = ({customerPromise, selectedCards, setSelectedCards, remo
                                         </div>
                                     </div>
                                 </div>
-                                    </div>)
+                            </div>)
                         }
                         
                     </div>
@@ -69,14 +69,11 @@ const CustomerTickets = ({customerPromise, selectedCards, setSelectedCards, remo
                              removeTaskStatus={removeTaskStatus} 
                              selectedCard={selectedCard}
                               handleCompleteTask={handleCompleteTask}>
-
                         </SelectedCard>)
                     }
                 </div>
                 <div>
                     <h1 className='text-2xl font-semibold'>Resolved Task</h1>
-
-
                     <div className='mt-3 space-y-2'>
                         {resolvedTasks.length > 0 ? (
                             resolvedTasks.map((task, index) => (
