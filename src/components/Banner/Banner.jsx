@@ -1,7 +1,7 @@
 import React from 'react';
 import bgImg from '../../assets/Clippath.png'
 
-const Banner = ({selectedCards}) => {
+const Banner = ({selectedCards, resolvedTasks}) => {
     return (
         <main className='w-11/12 mx-auto my-15 '>
             <section className=' grid grid-cols-1 md:grid-cols-2 gap-8'>
@@ -17,7 +17,7 @@ const Banner = ({selectedCards}) => {
                     <img src={bgImg} class="absolute -left-1.5"/>
                     <img src={bgImg} class="absolute -right-1.5 rotate-y-180"/>
                     <h2 className='text-2xl'>Resolved</h2>
-                    <h1 className='font-bold text-6xl'>0</h1>
+                    <h1 className='font-bold text-6xl'>{resolvedTasks.length}</h1>
                 </section>
             </section>
         </main>

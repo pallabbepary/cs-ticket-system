@@ -4,10 +4,11 @@ import Vector from '../../assets/Vector.png'
 import SelectedCard from '../../components/SelectedCard/SelectedCard';
 import { toast } from 'react-toastify';
 
-const CustomerTickets = ({customerPromise, selectedCards, setSelectedCards, removeTaskStatus}) => {
+const CustomerTickets = ({customerPromise, selectedCards, setSelectedCards, removeTaskStatus, handleCompleteTask, resolvedTasks}) => {
 
     const customerData = use(customerPromise)
-    // console.log(customerData)
+
+    
 
     
     return (
@@ -20,12 +21,13 @@ const CustomerTickets = ({customerPromise, selectedCards, setSelectedCards, remo
                     <div className='grid md:grid-cols-2 gap-5'>
                         {
                             customerData.map(customer => <div onClick={() => {
+
                                 
-                                setSelectedCards([...selectedCards, customer])
-                                if(setSelectedCards){
-                                    toast("card adds")
-                                    return
-                                }
+                            if(!selectedCards.find(c => c.id === customer.id)){
+                                setSelectedCards([...selectedCards, customer]);
+                                toast.success("Card Added");
+                            }
+                                
                             }} className="card bg-base-100 shadow-sm">
                                 <div className="card-body space-y-1">
                                     <div className='flex justify-between items-center'>
@@ -62,12 +64,30 @@ const CustomerTickets = ({customerPromise, selectedCards, setSelectedCards, remo
                 </div>
                 <div className='space-y-4'>
                     {
-                        selectedCards.map(selectedCard => <SelectedCard removeTaskStatus={removeTaskStatus} selectedCard={selectedCard}></SelectedCard>)
+                        selectedCards.map(selectedCard => 
+                        <SelectedCard
+                             removeTaskStatus={removeTaskStatus} 
+                             selectedCard={selectedCard}
+                              handleCompleteTask={handleCompleteTask}>
+
+                        </SelectedCard>)
                     }
                 </div>
                 <div>
                     <h1 className='text-2xl font-semibold'>Resolved Task</h1>
-                    <span className='text-gray-500 text-[18px]'>No resolved tasks yet.</span>
+
+
+                    <div className='mt-3 space-y-2'>
+                        {resolvedTasks.length > 0 ? (
+                            resolvedTasks.map((task, index) => (
+                                <div key={index} className='bg-[#E0E7FF] rounded-lg p-4'>
+                                    <h1 className='font-bold text-xl'>{task.title}</h1>
+                                </div>
+                            ))
+                        ) : (
+                            <p className='text-gray-500'>No resolved tasks yet</p>
+                        )}
+                    </div>
                 </div>
             </div>
         </section>

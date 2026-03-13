@@ -15,13 +15,22 @@ const fetchCustomerTickets = async () => {
 
 function App() {
 
-  const [inProgress, setInProgress] = useState(0)
+  const [selectedCards, setSelectedCards] = useState([]);
 
-  const [selectedCards, setSelectedCards] = useState([])
+
+
+const [resolvedTasks, setResolvedTasks] = useState([]);
+
+const handleCompleteTask = (task) => {
+    const remaining = selectedCards.filter(card => card.id !== task.id);
+    setSelectedCards(remaining);
+    setResolvedTasks([...resolvedTasks, task]);
+  };
+  
+  
   
   const removeTaskStatus = (c) =>{
     const filterData = selectedCards.filter(card => card.id !==c.id)
-    // console.log(filterData)
     setSelectedCards(filterData)
   }
   
@@ -31,10 +40,18 @@ function App() {
     <>
       <Navbar></Navbar>
 
-      <Banner selectedCards = {selectedCards}></Banner>
+      <Banner selectedCards = {selectedCards} resolvedTasks={resolvedTasks}></Banner>
 
       <Suspense>
-        <CustomerTickets removeTaskStatus={removeTaskStatus} selectedCards={selectedCards} setSelectedCards={setSelectedCards} customerPromise = {customerPromise}></CustomerTickets>
+        <CustomerTickets  
+          handleCompleteTask={handleCompleteTask} 
+          resolvedTasks={resolvedTasks} 
+          removeTaskStatus={removeTaskStatus} 
+          selectedCards={selectedCards} 
+          setSelectedCards={setSelectedCards} 
+          customerPromise = {customerPromise}>
+
+        </CustomerTickets>
       </Suspense>
 
       <Footer></Footer>

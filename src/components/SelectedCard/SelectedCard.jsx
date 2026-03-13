@@ -1,9 +1,10 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 
-const selectedCard = ({selectedCard, removeTaskStatus}) => {
+const selectedCard = ({selectedCard, removeTaskStatus, handleCompleteTask}) => {
     console.log(selectedCard)
     const handelRemoved = () =>{
+        handleCompleteTask(selectedCard);
         removeTaskStatus(selectedCard)
         if(handelRemoved){
             toast("Task Complete")
