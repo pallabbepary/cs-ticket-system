@@ -7,13 +7,13 @@ import Twitter from '../../assets/x.png'
 
 const Footer = () => {
     return (
-        <footer className=' bg-blue-950 pt-25 pb-10'>
-            <section className='w-11/12 mx-auto md:grid md:grid-cols-5  border-b-2 border-gray-400 '>
-                <div className='space-y-5'>
+        <footer className=' bg-blue-950 pt-25 pb-10 '>
+            <section className='w-11/12 mx-auto flex  border-b-2 border-gray-400 '>
+                <div className='space-y-5 pr-50 flex-1'>
                     <a href='' className='text-white font-bold text-2xl'>CS — Ticket System</a>
                     <p className='text-gray-400'>CS — Ticket System is a streamlined support solution designed to bridge the gap between businesses and customers. We empower teams to resolve queries faster, ensuring every ticket is handled with precision and care.</p>
                 </div>
-                <div className='space-y-5'>
+                <div className='space-y-5 flex-1'>
                     <h1 className='font-semibold text-2xl mt-8 md:mt-0 text-white'>Company</h1>
                     <div className='grid text-gray-400 space-y-4'>
                         <a href="">About Us</a>
@@ -21,7 +21,7 @@ const Footer = () => {
                         <a href="">Contact Saled</a>
                     </div>
                 </div>
-                <div className='space-y-5'>
+                <div className='space-y-5 flex-1'>
                     <h1 className='font-semibold text-2xl mt-8 md:mt-0 text-white'>Services</h1>
                     <div className='grid text-gray-400 space-y-4'>
                         <a href="">Products & Services</a>
@@ -29,7 +29,7 @@ const Footer = () => {
                         <a href="">Download Apps</a>
                     </div>
                 </div>
-                <div className='space-y-5'>
+                <div className='space-y-5 flex-1'>
                     <h1 className='font-semibold text-2xl mt-8 md:mt-0 text-white'>Information</h1>
                     <div className='grid text-gray-400 space-y-4'>
                         <a href="">Privacy Policy</a>
